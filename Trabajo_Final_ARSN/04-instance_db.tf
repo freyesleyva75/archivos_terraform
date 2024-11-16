@@ -12,5 +12,5 @@ resource "openstack_compute_instance_v2" "db_server" {
   network {
     uuid = openstack_networking_network_v2.net3.id
   }
-    user_data = file("cloud-init-db.yaml")
+    user_data = file("scripts/cloud-init-db.yaml")
 }
