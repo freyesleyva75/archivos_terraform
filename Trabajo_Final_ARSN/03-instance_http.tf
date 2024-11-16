@@ -15,7 +15,7 @@ resource "openstack_compute_instance_v2" "web_server" {
     name = var.network_2
   }
   # Configuración de cloud-init
-  user_data = file("cloud-init.yaml")
+  user_data = file("scripts/cloud-init-http.yaml")
 
   
 }

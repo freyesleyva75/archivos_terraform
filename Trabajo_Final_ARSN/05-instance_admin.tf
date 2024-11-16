@@ -12,7 +12,7 @@ resource "openstack_compute_instance_v2" "admin_server" {
   network {
     uuid = openstack_networking_network_v2.net2.id
   }
-     user_data = file("cloud-init-admin.yaml")
+     user_data = file("scripts/cloud-init-admin.yaml")
 }
 
 #Configuracion del acceso externo del servidor de administracion
