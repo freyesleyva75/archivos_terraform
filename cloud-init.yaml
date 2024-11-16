@@ -1,0 +1,13 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+packages:
+  - apache2
+  - curl
+
+runcmd:
+  - systemctl enable apache2
+  - systemctl start apache2
+  - echo "Bienvenido a al servidor web" > /var/www/html/index.html
+
+final_message: "Configuración básica completada"

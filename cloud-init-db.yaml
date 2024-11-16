@@ -1,0 +1,13 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+
+packages:
+  - mariadb-server
+  - curl
+
+runcmd:
+  - systemctl enable mariadb
+  - systemctl start mariadb
+
+final_message: "Configuración básica completada"
