@@ -6,7 +6,7 @@ write_files:
   - path: /etc/ssh/sshd_config
     permissions: "0644"
     content: |
-      # Cambio de puerto SSH a 2020
+      # Cambio de puerto SSH a 2022
       Port 2022
 
 runcmd:

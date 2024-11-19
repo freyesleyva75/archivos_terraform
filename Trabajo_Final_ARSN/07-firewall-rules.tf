@@ -22,6 +22,7 @@ resource "openstack_fw_rule_v2" "http_rule" {
 
 # Regla de firewall para el tráfico saliente de la red Net1
 resource "openstack_fw_rule_v2" "allow_internal" {
+  name                   = "allow_internal"
   action                 = "allow"
   protocol               = "any"
   destination_ip_address = var.ip_default
