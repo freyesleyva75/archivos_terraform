@@ -7,35 +7,7 @@ write_files:
     permissions: "0644"
     content: |
       # Cambio de puerto SSH a 2020
-      Port 2020
-
-write_files:
-  - path: /root/shared/ssh-access.sh
-    permissions: '0755'
-    owner: root:root
-    content: |
-      #!/bin/bash
-
-      # Habilitar acceso SSH
-      enable_ssh() {
-        # Crear la regla en el firewall para habilitar el acceso SSH
-        openstack firewall rule create --protocol tcp --port 2020 --source-ip <IP_DESDE_LA_QUE_ACCIONES> --action allow
-      }
-
-      # Deshabilitar acceso SSH
-      disable_ssh() {
-        # Eliminar la regla en el firewall que permite el acceso SSH
-        openstack firewall rule delete <ID_DE_LA_REGLE_DE_SSH>
-      }
-
-      # Llamar a la función según lo que necesites
-      if [ "$1" == "enable" ]; then
-        enable_ssh
-      elif [ "$1" == "disable" ]; then
-        disable_ssh
-      else
-        echo "Uso: $0 {enable|disable}"
-      fi
+      Port 2022
 
 runcmd:
   - /root/shared/ssh-access.sh enable

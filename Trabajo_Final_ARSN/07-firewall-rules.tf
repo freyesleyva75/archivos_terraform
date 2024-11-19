@@ -43,10 +43,13 @@ resource "openstack_fw_policy_v2" "policy_out" {
   depends_on  = [openstack_fw_rule_v2.allow_internal]
 }
 
-# Firewall grupo de asociacion de politicas
+# Firewall grupo de asociacion de politicas y puerto de conexión con Net1
 resource "openstack_fw_group_v2" "firewall_group" {
   name                       = "firewall-group"
   ingress_firewall_policy_id = openstack_fw_policy_v2.policy_in.id
   egress_firewall_policy_id  = openstack_fw_policy_v2.policy_out.id
-  depends_on                 = [openstack_fw_policy_v2.policy_in, openstack_fw_policy_v2.policy_out]
+  ports                      = [openstack_networking_port_v2.net1_port.id]
+  depends_on                 = [openstack_fw_policy_v2.policy_in,
+                                openstack_fw_policy_v2.policy_out, 
+                                openstack_networking_port_v2.net1_port]
 }
