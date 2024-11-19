@@ -4,10 +4,55 @@ package_upgrade: true
 packages:
   - apache2
   - curl
-
+write_files:
+  - path: /var/www/html/index.html
+    permissions: "0644"
+    content: |
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Welcome to My Website</title>
+          <style>
+              body {
+                  font-family: Arial, sans-serif;
+                  margin: 0;
+                  padding: 0;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  height: 100vh;
+                  background-color: #f3f4f6;
+                  color: #333;
+              }
+              .container {
+                  text-align: center;
+              }
+              h1 {
+                  font-size: 3rem;
+                  color: #0073e6;
+              }
+              p {
+                  font-size: 1.2rem;
+              }
+              footer {
+                  margin-top: 2rem;
+                  font-size: 0.9rem;
+                  color: #555;
+              }
+          </style>
+      </head>
+      <body>
+          <div class="container">
+              <h1>Bienvenidos a la Trabajo Final de ARSN</h1>
+              <p>Haz llegado a la pagina de inicio servida a traves del balanceador de carga</p>
+              <footer>&copy; 2024 ETSIT-UPM. Todos los derechos reservados.</footer>
+          </div>
+      </body>
+      </html>
 runcmd:
   - systemctl enable apache2
   - systemctl start apache2
-  - echo "Bienvenido a al servidor web" > /var/www/html/index.html
 
 final_message: "Configuración básica completada"

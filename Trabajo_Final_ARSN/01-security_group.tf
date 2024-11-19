@@ -37,6 +37,17 @@ resource "openstack_networking_secgroup_rule_v2" "allow_dns_udp_egress" {
   security_group_id = openstack_networking_secgroup_v2.my_security_group.id
 }
 
+# Regla para permitir el trafico ssh a la instnacia admin
+resource "openstack_networking_secgroup_rule_v2" "allow_ssh" {
+  direction         = "ingress"
+  ethertype         = "IPv4"
+  protocol          = "tcp"
+  port_range_min    = 2022
+  port_range_max    = 2022
+  remote_ip_prefix  = var.ip_default
+  security_group_id = openstack_networking_secgroup_v2.my_security_group.id
+}
+
 ### GRUPO DE SEGURIDAD PARA DEPURACION Y TESTING ###
 
 # Creacion del grupo de serguridad 2 para permitir tráfico ICMP
