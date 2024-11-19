@@ -32,6 +32,7 @@ resource "openstack_networking_port_v2" "net1_port" {
   network_id   = openstack_networking_network_v2.net1.id
   fixed_ip {
     subnet_id  = openstack_networking_subnet_v2.subnet1.id
+    ip_address = "10.0.1.1"
   }
   depends_on = [openstack_networking_network_v2.net1, openstack_networking_subnet_v2.subnet1]
 }
