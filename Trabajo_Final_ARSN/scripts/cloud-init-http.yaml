@@ -45,8 +45,8 @@ write_files:
       </head>
       <body>
           <div class="container">
-              <h1>Bienvenidos a la Trabajo Final de ARSN</h1>
-              <p>Haz llegado a la pagina de inicio servida a traves del balanceador de carga</p>
+              <h1>Bienvenidos al Trabajo Final de ARSN</h1>
+              <p>Haz llegado a la pagina de inicio servida a través del balanceador de carga</p>
               <footer>&copy; 2024 ETSIT-UPM. Todos los derechos reservados.</footer>
           </div>
       </body>
