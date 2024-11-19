@@ -10,7 +10,6 @@ write_files:
       Port 2022
 
 runcmd:
-  - /root/shared/ssh-access.sh enable
   - systemctl restart sshd
 
 final_message: "Configuración básica completada"
