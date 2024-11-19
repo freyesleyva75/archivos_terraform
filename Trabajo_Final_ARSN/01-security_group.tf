@@ -26,6 +26,17 @@ resource "openstack_networking_secgroup_rule_v2" "security_group_rule_engress" {
   security_group_id = openstack_networking_secgroup_v2.my_security_group.id
 }
 
+# Regla para permitir el trafico UDP saliente
+resource "openstack_networking_secgroup_rule_v2" "allow_dns_udp_egress" {
+  direction         = "egress"
+  ethertype         = "IPv4"
+  protocol          = "udp"
+  port_range_min    = 53
+  port_range_max    = 53
+  remote_ip_prefix  = var.ip_default
+  security_group_id = openstack_networking_secgroup_v2.my_security_group.id
+}
+
 ### GRUPO DE SEGURIDAD PARA DEPURACION Y TESTING ###
 
 # Creacion del grupo de serguridad 2 para permitir tráfico ICMP
@@ -52,3 +63,5 @@ resource "openstack_networking_secgroup_rule_v2" "security_group_rule_engress_1"
   remote_ip_prefix  = var.ip_default
   security_group_id = openstack_networking_secgroup_v2.my_security_group_1.id
 }
+
+
