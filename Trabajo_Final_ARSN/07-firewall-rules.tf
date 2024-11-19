@@ -50,6 +50,6 @@ resource "openstack_fw_group_v2" "firewall_group" {
   egress_firewall_policy_id  = openstack_fw_policy_v2.policy_out.id
   ports                      = [openstack_networking_port_v2.net1_port.id]
   depends_on                 = [openstack_fw_policy_v2.policy_in,
-                                openstack_fw_policy_v2.policy_out, 
+                                openstack_fw_policy_v2.policy_out,
                                 openstack_networking_port_v2.net1_port]
 }
