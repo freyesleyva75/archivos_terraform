@@ -26,6 +26,16 @@ resource "openstack_networking_subnet_v2" "subnet2" {
   ip_version = 4
  }
 
+#Creacion del puerto que conecta el Firewall con Net1
+resource "openstack_networking_port_v2" "net1_port" {
+  name         = "net1_port"
+  network_id   = openstack_networking_network_v2.net1.id
+  fixed_ip {
+    subnet_id  = openstack_networking_subnet_v2.subnet1.id
+  }
+  depends_on = [openstack_networking_network_v2.net1, openstack_networking_subnet_v2.subnet1]
+}
+
 ### CONFIGURACION DE LA RED DE ACCESO DE DB_SERVER ###
 
 # Creación de la red Net3
@@ -59,7 +69,7 @@ resource "openstack_networking_router_v2" "firewall_rc" {
 # Configuración de las interfaces del Firewall
 resource "openstack_networking_router_interface_v2" "router_interface" {
   router_id = openstack_networking_router_v2.firewall_rc.id
-  subnet_id = openstack_networking_subnet_v2.subnet1.id
+  port_id   = openstack_networking_port_v2.net1_port.id
 }
 
 ### CONFIGURACIÓN DEL ENLACE DEL DB SERVER A INTERNET ###
@@ -75,4 +85,3 @@ resource "openstack_networking_router_interface_v2" "backup_interface" {
   router_id = openstack_networking_router_v2.backup.id
   subnet_id = openstack_networking_subnet_v2.subnet3.id
 }
-
