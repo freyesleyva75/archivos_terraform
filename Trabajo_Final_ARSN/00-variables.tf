@@ -72,3 +72,12 @@ variable "ip_default" {
     type = string
     default = "0.0.0.0/0"
 }
+
+variable "enable_ssh" {
+  default = true
+}
+
+variable "admin_source_ip" {
+    type = string
+    default = "0.0.0.0/0"
+}
