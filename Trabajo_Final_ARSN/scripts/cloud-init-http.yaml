@@ -13,7 +13,7 @@ write_files:
       <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Welcome to My Website</title>
+          <title>Welcome to Web Server ${hostname}</title>
           <style>
               body {
                   font-family: Arial, sans-serif;
@@ -46,7 +46,7 @@ write_files:
       <body>
           <div class="container">
               <h1>Bienvenidos al Trabajo Final de ARSN</h1>
-              <p>Haz llegado a la pagina de inicio servida a través del balanceador de carga</p>
+              <p>Haz llegado a la pagina de inicio del Serviodr Web ${hostname}!</p>
               <pre>
        _ _ _   
     __| (_) |_ 
