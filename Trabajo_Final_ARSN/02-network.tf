@@ -25,7 +25,6 @@ resource "openstack_networking_subnet_v2" "subnet2" {
   network_id = openstack_networking_network_v2.net2.id
   cidr       = var.subnet_2["cidr"]
   ip_version = 4
-  dns_nameservers = var.dns_ip
  }
 
 #Creacion del puerto que conecta el Firewall con Net1
