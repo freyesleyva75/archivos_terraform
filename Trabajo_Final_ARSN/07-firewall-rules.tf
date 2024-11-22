@@ -1,26 +1,4 @@
 # Regla de firewall para el tráfico SSH hacia el server de administración
-
-# Para habilitar la regla especificando una direccion ip de origen, ejecutar:
-# terraform apply -var="admin_source_ip=192.168.1.100"
-
-# Para deshabilitar la regla, ejecutar:
-# terraform apply -var="enable_ssh=false" 
-# Nota: No se podra acceder por ssh a la vm de ,
-# Pues esta especificado el puerto 2022 en el fichero /etc/ssh/sshd_config
-
-# resource "openstack_fw_rule_v2" "ssh_rule" {
-#   count = var.enable_ssh ? 1 : 0
-
-#   name                   = "allow_ssh"
-#   action                 = "allow"
-#   protocol               = "tcp"
-#   destination_port       = "2022"
-#   source_ip_address      = var.admin_source_ip
-#   destination_ip_address = openstack_compute_instance_v2.admin_server.network[0].fixed_ip_v4
-#   depends_on             = [openstack_compute_instance_v2.admin_server]
-# }
-
-# Regla de firewall para el tráfico SSH hacia el server de administración
 resource "openstack_fw_rule_v2" "ssh_rule" {
   name                   = "allow_ssh"
   action                 = "allow"
