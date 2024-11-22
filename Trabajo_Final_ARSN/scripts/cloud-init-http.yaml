@@ -13,7 +13,7 @@ write_files:
       <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Welcome to Web Server ${hostname}</title>
+          <title>Welcome to Web Server</title>
           <style>
               body {
                   font-family: Arial, sans-serif;
@@ -46,19 +46,7 @@ write_files:
       <body>
           <div class="container">
               <h1>Bienvenidos al Trabajo Final de ARSN</h1>
-              <p>Haz llegado a la pagina de inicio del Serviodr Web ${hostname}!</p>
-              <pre>
-       _ _ _   
-    __| (_) |_ 
-   / _` | | __|
-  | (_| | | |_ 
-   \__,_|_|\__|
- _   _ ____  __  __ 
-| | | |  _ \|  \/  |
-| | | | |_) | |\/| |
-| |_| |  __/| |  | |
- \___/|_|   |_|  |_|
-</pre>
+              <p>Haz llegado a la pagina de inicio del Serviodr Web!</p>
               <footer>&copy; 2024 ETSIT-UPM. Todos los derechos reservados.</footer>
           </div>
       </body>
