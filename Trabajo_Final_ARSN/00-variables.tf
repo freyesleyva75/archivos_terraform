@@ -74,6 +74,7 @@ variable "ip_default" {
 }
 
 variable "enable_ssh" {
+  type = bool
   default = true
 }
 
