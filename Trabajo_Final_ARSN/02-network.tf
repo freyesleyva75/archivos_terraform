@@ -42,7 +42,7 @@ resource "openstack_networking_port_v2" "net1_port" {
 
 # Creación de la red Net3
 resource "openstack_networking_network_v2" "net3" {
-  name = "Net3"
+  name = var.network_3
 }
 
 # Creación de la subred subnet3 correspondiente a Net3

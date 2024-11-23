@@ -13,6 +13,11 @@ variable "network_2" {
   default = "Net2"
 }
 
+variable "network_3" {
+  type    = string
+  default = "Net3"
+}
+
 variable "subnet_1" {
   type = map(string)
   default = {
